@@ -2,16 +2,30 @@
 
 scr_get_input();
 
+if(roll_key and obj_player_stats.stamina >= ROLL_COST) {
+    image_index = 0;
+    state = scr_roll_state;
+    alarm[0] = room_speed/2;
+    obj_player_stats.stamina -= ROLL_COST;
+    obj_player_stats.alarm[0] = room_speed/10;
+}
+
+if(attack_key) {
+    image_index = 0;
+    state = scr_attack_state;    
+}
+
 
 
 // get direction
-var dir = point_direction(0, 0, xaxis, yaxis);
+dir = point_direction(0, 0, xaxis, yaxis);
 
 // get the length
 if (xaxis == 0 and yaxis == 0) {
     len = 0;
 }else {
     len = spd;
+    scr_get_face();
 }
 
 // get the hspd and vspd
@@ -28,17 +42,25 @@ if (len == 0) {
     image_index = 0;
 }
 
-// vertical sprites
-if (vspd > 0) {
-    sprite_index = spr_player_down;
-} else if (vspd < 0) {
-    sprite_index = spr_player_up;
-}
 
-// horizontal sprites
-if (hspd > 0) {
+
+switch (face) {
+    
+    case RIGHT:
     sprite_index = spr_player_right;
-} else if (hspd < 0) {
-    sprite_index = spr_player_left
+    break;
+    
+    case UP:
+    sprite_index = spr_player_up;
+    break;  
+        
+    case LEFT:
+    sprite_index = spr_player_left;
+    break;
+    
+    case DOWN:
+    sprite_index = spr_player_down;
+    break;
+    
 }
 
