@@ -189,8 +189,8 @@ if (state != scr_enemy_stall_state) {
     <point>16,6</point>
     <point>24,8</point>
     <point>16,12</point>
-    <point>8,12</point>
-    <point>0,8</point>
-    <point>8,6</point>
+    <point>10,12</point>
+    <point>0,10</point>
+    <point>10,6</point>
   </PhysicsShapePoints>
 </object>

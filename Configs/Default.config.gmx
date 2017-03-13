@@ -651,12 +651,27 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="5">
+    <constants number="20">
       <constant name="RIGHT">0</constant>
       <constant name="UP">1</constant>
       <constant name="LEFT">2</constant>
       <constant name="DOWN">3</constant>
+      <constant name="WALK_SPD">2</constant>
+      <constant name="RUN_SPD">3</constant>
       <constant name="ROLL_COST">5</constant>
+      <constant name="RETURN">0</constant>
+      <constant name="NEW_ROOM">1</constant>
+      <constant name="LOAD">2</constant>
+      <constant name="MOVE">0</constant>
+      <constant name="ATTACK">1</constant>
+      <constant name="WANDRIGHT">0</constant>
+      <constant name="WANDUPRIGHT">1</constant>
+      <constant name="WANDUP">2</constant>
+      <constant name="WANDUPLEFT">3</constant>
+      <constant name="WANDLEFT">4</constant>
+      <constant name="WANDDOWNLEFT">5</constant>
+      <constant name="WANDDOWN">6</constant>
+      <constant name="WANDDOWNRIGHT">7</constant>
     </constants>
   </ConfigConstants>
 </Config>

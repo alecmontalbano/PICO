@@ -1,9 +1,21 @@
 ///scr_attack_state
-if (len == 0) {
+scr_attack_key_released();
+ 
+if(image_index >=3 and combostate[0] and attacked == true and obj_input.attack_key_pressed and canattack == true) {
+    image_index = 0;
+    state = combostate[combo];
+    canattack = false;  
+    attacked = false;
+    //increment combo and don't allow to exceed maxcombo;
+    combo = (combo+1)%combomax;
+    
+}
+
+ if (len == 0) {
     dir = face*90;
 }
 
-len = spd*.15;
+len = spd*.1;
 
 // get the hspd and vspd
 hspd = lengthdir_x(len, dir);
@@ -15,14 +27,16 @@ phy_position_y += vspd;
 
 image_speed = .65; 
 
-switch (face) {
+if (image_index <= 6)
+{
+    switch (face) {
     
     case DOWN:
         sprite_index = spr_player_attack_down;
         break;
 
     case UP:
-        sprite_index = spr_player_attack_up;
+        sprite_index = spr_player_attack_up_alt;
         break;
         
     case LEFT:
@@ -32,30 +46,32 @@ switch (face) {
     case RIGHT:
         sprite_index = spr_player_attack_right;
         break;        
-}
-
-if (image_index >= 4 and attacked == false) {
-    var xx = 0;
-    var yy = 0;    
-
-    switch (sprite_index) {
+    }
     
-        case spr_player_attack_down:
+
+if (image_index >=4 and attacked == false) {
+    var xx = 0;
+    var yy = 0;   
+     
+
+    switch (face) {
+    
+        case DOWN:
             xx = x;
             yy = y+12;
             break;
     
-        case spr_player_attack_up:
+        case UP:
             xx = x;
             yy = y-10;
             break;
             
-        case spr_player_attack_left:
+        case LEFT:
             xx = x-10;
             yy = y+2;
             break;
             
-        case spr_player_attack_right:
+        case RIGHT:
             xx = x+10;
             yy = y+2;           
             break;        
@@ -64,4 +80,19 @@ if (image_index >= 4 and attacked == false) {
     var damage = instance_create(xx, yy, obj_damage); 
     damage.creator = id;
     attacked = true;
+    }
 }
+
+if (image_index >= 7 and combostate[0])
+
+{
+    attacked = false;
+    state = scr_walk_state;
+    canattack = true;
+    combo = 0;
+    obj_bebu.sight = 3;
+    
+    
+}
+
+

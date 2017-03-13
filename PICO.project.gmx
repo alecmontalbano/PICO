@@ -6,22 +6,39 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_warp</sprite>
-    <sprite>sprites\spr_enemy_slime</sprite>
     <sprites name="Pico">
+      <sprites name="walk">
+        <sprite>sprites\spr_player_walk_down</sprite>
+        <sprite>sprites\spr_player_walk_up</sprite>
+        <sprite>sprites\spr_player_walk_left</sprite>
+        <sprite>sprites\spr_player_walk_right</sprite>
+      </sprites>
       <sprites name="run">
-        <sprite>sprites\spr_player_down</sprite>
-        <sprite>sprites\spr_player_up</sprite>
-        <sprite>sprites\spr_player_right</sprite>
-        <sprite>sprites\spr_player_left</sprite>
-        <sprite>sprites\spr_player_shadow</sprite>
+        <sprite>sprites\spr_player_run_down</sprite>
+        <sprite>sprites\spr_player_run_up</sprite>
+        <sprite>sprites\spr_player_run_right</sprite>
+        <sprite>sprites\spr_player_run_left</sprite>
       </sprites>
       <sprites name="attack">
-        <sprite>sprites\spr_player_attack_down</sprite>
-        <sprite>sprites\spr_player_attack_up</sprite>
-        <sprite>sprites\spr_player_attack_right</sprite>
-        <sprite>sprites\spr_player_attack_left</sprite>
+        <sprites name="swing1">
+          <sprite>sprites\spr_player_attack_up</sprite>
+          <sprite>sprites\spr_player_attack_down</sprite>
+          <sprite>sprites\spr_player_attack_left</sprite>
+          <sprite>sprites\spr_player_attack_right</sprite>
+          <sprite>sprites\spr_player_attack_up_alt</sprite>
+        </sprites>
+        <sprites name="swing2">
+          <sprite>sprites\spr_player_attack_2_up</sprite>
+          <sprite>sprites\spr_player_attack_2_down</sprite>
+          <sprite>sprites\spr_player_attack_2_left</sprite>
+          <sprite>sprites\spr_player_attack_2_right</sprite>
+        </sprites>
+        <sprites name="swing3">
+          <sprite>sprites\spr_player_attack_3_up</sprite>
+          <sprite>sprites\spr_player_attack_3_down</sprite>
+          <sprite>sprites\spr_player_attack_3_left</sprite>
+          <sprite>sprites\spr_player_attack_3_right</sprite>
+        </sprites>
       </sprites>
       <sprites name="roll">
         <sprite>sprites\spr_player_roll_down</sprite>
@@ -29,25 +46,121 @@
         <sprite>sprites\spr_player_roll_right</sprite>
         <sprite>sprites\spr_player_roll_left</sprite>
       </sprites>
+      <sprites name="idle">
+        <sprite>sprites\spr_player_idle_down</sprite>
+        <sprite>sprites\spr_player_idle_up</sprite>
+        <sprite>sprites\spr_player_idle_right</sprite>
+        <sprite>sprites\spr_player_idle_left</sprite>
+      </sprites>
+      <sprites name="climb">
+        <sprite>sprites\spr_player_climb_up</sprite>
+        <sprite>sprites\spr_player_climb_down</sprite>
+        <sprite>sprites\spr_player_climb_right</sprite>
+        <sprite>sprites\spr_player_climb_left</sprite>
+      </sprites>
+      <sprites name="aim">
+        <sprite>sprites\spr_player_aim_down</sprite>
+        <sprite>sprites\spr_player_aim_left</sprite>
+        <sprite>sprites\spr_player_aim_right</sprite>
+        <sprite>sprites\spr_player_aim_up</sprite>
+        <sprites name="wands">
+          <sprite>sprites\spr_player_wand_caster</sprite>
+          <sprite>sprites\spr_player_wand_coil</sprite>
+          <sprite>sprites\spr_player_wand_quill</sprite>
+          <sprite>sprites\spr_player_wand_palm</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="projectiles">
+        <sprite>sprites\spr_player_projectile_caster</sprite>
+        <sprite>sprites\spr_player_projectile_coil</sprite>
+        <sprite>sprites\spr_player_projectile_quill</sprite>
+        <sprite>sprites\spr_player_projectile_palm</sprite>
+      </sprites>
+      <sprite>sprites\spr_player_shadow</sprite>
     </sprites>
-    <sprite>sprites\spr_damage</sprite>
-    <sprite>sprites\spr_expr</sprite>
-    <sprite>sprites\spr_health</sprite>
+    <sprites name="Bebu">
+      <sprite>sprites\spr_bebu</sprite>
+      <sprite>sprites\spr_bebu_hover</sprite>
+    </sprites>
+    <sprites name="NPCs">
+      <sprites name="Panto">
+        <sprite>sprites\spr_sick_nana</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Enemies">
+      <sprites name="Panto">
+        <sprite>sprites\spr_enemy_slime</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Collectibles">
+      <sprite>sprites\spr_health</sprite>
+      <sprite>sprites\spr_expr</sprite>
+    </sprites>
+    <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_warp</sprite>
+    <sprite>sprites\spr_climbable</sprite>
+    <sprite>sprites\spr_checkpoint</sprite>
+    <sprite>sprites\spr_hitbox</sprite>
+    <sprite>sprites\spr_sign</sprite>
+    <sprite>sprites\spr_dialogue_box</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_grass</background>
+    <background>background\bg_panto_mastersheet</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="player states">
-      <script>scripts\scr_attack_state.gml</script>
+      <script>scripts\scr_walk_state.gml</script>
+      <script>scripts\scr_run_state.gml</script>
+      <script>scripts\scr_aim_state.gml</script>
+      <script>scripts\scr_interact_state.gml</script>
       <script>scripts\scr_roll_state.gml</script>
-      <script>scripts\scr_move_state.gml</script>
+      <script>scripts\scr_climb_state.gml</script>
+      <script>scripts\scr_hurt_state.gml</script>
+      <script>scripts\scr_death_state.gml</script>
+      <scripts name="player wand states">
+        <script>scripts\scr_wand_holstered_state.gml</script>
+        <script>scripts\scr_wand_caster_state.gml</script>
+        <script>scripts\scr_wand_coil_state.gml</script>
+        <script>scripts\scr_wand_quill_state.gml</script>
+        <script>scripts\scr_wand_palm_state.gml</script>
+      </scripts>
+      <scripts name="player projectile states">
+        <script>scripts\scr_player_projectile_inactive_state.gml</script>
+        <script>scripts\scr_player_projectile_active_state.gml</script>
+      </scripts>
+      <scripts name="player attack states">
+        <script>scripts\scr_attack_state.gml</script>
+        <script>scripts\scr_attack_state_2.gml</script>
+        <script>scripts\scr_attack_state_3.gml</script>
+        <script>scripts\scr_roll_attack_state.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="bebu states">
+      <script>scripts\scr_bebu_idle_state.gml</script>
+      <script>scripts\scr_bebu_stall_state.gml</script>
+      <script>scripts\scr_bebu_follow_state.gml</script>
+      <scripts name="bebu helper scripts">
+        <script>scripts\scr_bebu_check_for_player.gml</script>
+      </scripts>
     </scripts>
     <scripts name="helper scripts">
-      <script>scripts\scr_get_face.gml</script>
       <script>scripts\scr_get_input.gml</script>
+      <script>scripts\scr_get_face.gml</script>
+      <script>scripts\scr_get_wand_face.gml</script>
+      <script>scripts\scr_attack_key_released.gml</script>
+      <script>scripts\scr_aim_key_pressed.gml</script>
+      <script>scripts\scr_aim_key_released.gml</script>
+      <script>scripts\scr_cycle_wand_key_pressed.gml</script>
+      <script>scripts\scr_shoot_caster.gml</script>
+      <script>scripts\scr_shoot_coil.gml</script>
+      <script>scripts\scr_shoot_quill.gml</script>
+      <script>scripts\scr_shoot_palm.gml</script>
       <script>scripts\scr_chance.gml</script>
+      <script>scripts\scr_string_copy_words.gml</script>
+      <script>scripts\scr_save_game.gml</script>
+      <script>scripts\scr_load_game.gml</script>
     </scripts>
     <scripts name="enemy states">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -56,25 +169,64 @@
       <script>scripts\scr_enemy_chase_state.gml</script>
       <scripts name="enemy helper scripts">
         <script>scripts\scr_enemy_choose_next_state.gml</script>
-        <script>scripts\scr_check_for_player.gml</script>
+        <script>scripts\scr_enemy_check_for_player.gml</script>
       </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_player</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_view</object>
-    <object>objects\obj_enemy_slime</object>
-    <object>objects\obj_lifeform_parent</object>
-    <object>objects\obj_damage</object>
-    <object>objects\obj_player_stats</object>
-    <object>objects\obj_expr</object>
-    <object>objects\obj_health</object>
-    <object>objects\obj_warp</object>
+    <objects name="Player">
+      <object>objects\obj_player</object>
+      <object>objects\obj_player_wand</object>
+    </objects>
+    <objects name="Enemies">
+      <objects name="Panto">
+        <object>objects\obj_enemy_slime</object>
+      </objects>
+    </objects>
+    <objects name="Hitboxes">
+      <object>objects\obj_interact</object>
+      <object>objects\obj_damage</object>
+      <object>objects\obj_player_projectile_caster</object>
+      <object>objects\obj_player_projectile_coil</object>
+      <object>objects\obj_player_projectile_quill</object>
+      <object>objects\obj_player_projectile_palm</object>
+    </objects>
+    <objects name="Level ">
+      <object>objects\obj_par_ladder</object>
+      <object>objects\obj_checkpoint</object>
+      <object>objects\obj_warp</object>
+      <objects name="Collectibles">
+        <object>objects\obj_health</object>
+        <object>objects\obj_expr</object>
+      </objects>
+      <object>objects\obj_wall</object>
+    </objects>
+    <objects name="Dialogue">
+      <object>objects\obj_dialogue</object>
+      <object>objects\obj_speaker</object>
+    </objects>
+    <objects name="Helpers">
+      <object>objects\obj_lifeform_parent</object>
+      <object>objects\obj_player_stats</object>
+      <object>objects\obj_view</object>
+      <object>objects\obj_input</object>
+    </objects>
+    <objects name="Menus">
+      <object>objects\obj_pause_menu</object>
+    </objects>
+    <objects name="NPCs">
+      <objects name="Panto">
+        <object>objects\obj_sign</object>
+        <object>objects\obj_sick_nana</object>
+      </objects>
+      <object>objects\obj_bebu</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
+    <room>rooms\rm_nanas_house</room>
+    <room>rooms\rm_pause</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
