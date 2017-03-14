@@ -1,11 +1,13 @@
 ///scr_run_state
 
+//Walk
 if (state == scr_run_state and !obj_input.run_key and running == true) {
      obj_bebu.spd = WALK_SPD;
     running = false;
     state = scr_walk_state;
 }
 
+//Roll
 if(obj_input.roll_key and obj_player_stats.stamina >= ROLL_COST) {
     image_index = 0;
     state = scr_roll_state;
@@ -14,13 +16,12 @@ if(obj_input.roll_key and obj_player_stats.stamina >= ROLL_COST) {
     obj_player_stats.alarm[0] = room_speed/1.85;
 }
 
+//Climb
 if (place_meeting(x, y, obj_par_ladder)) {
-    
     image_index = 0;
     obj_bebu.sight = 1000;
     ladder = true;
     state = scr_climb_state;
-    
 }
 
 // get direction

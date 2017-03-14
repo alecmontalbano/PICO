@@ -1,5 +1,5 @@
 /// scr_enemy_check_for_player()
-if (instance_exists(obj_player)) {
+if (instance_exists(obj_player) and obj_player.alive == true) {
     var dis = point_distance(x, y, obj_player.x, obj_player.y);
     if (dis < sight) {
         state = scr_enemy_chase_state;

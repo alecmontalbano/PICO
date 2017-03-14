@@ -42,6 +42,7 @@ rolled = false;
 ladder = false;
 aiming = false;
 caninteract = true;
+alive = true;
 
 image_speed = 0;
 state = scr_walk_state;
@@ -92,7 +93,7 @@ if (!instance_exists(obj_player_wand)) {
 }
 
 // check for death
-if (obj_player_stats.hp &lt;= 0) {
+/*if (obj_player_stats.hp &lt;= 0) {
     game_restart();
 }
 </string>

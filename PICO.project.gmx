@@ -60,9 +60,9 @@
       </sprites>
       <sprites name="aim">
         <sprite>sprites\spr_player_aim_down</sprite>
+        <sprite>sprites\spr_player_aim_up</sprite>
         <sprite>sprites\spr_player_aim_left</sprite>
         <sprite>sprites\spr_player_aim_right</sprite>
-        <sprite>sprites\spr_player_aim_up</sprite>
         <sprites name="wands">
           <sprite>sprites\spr_player_wand_caster</sprite>
           <sprite>sprites\spr_player_wand_coil</sprite>
@@ -75,6 +75,18 @@
         <sprite>sprites\spr_player_projectile_coil</sprite>
         <sprite>sprites\spr_player_projectile_quill</sprite>
         <sprite>sprites\spr_player_projectile_palm</sprite>
+      </sprites>
+      <sprites name="hurt">
+        <sprite>sprites\spr_player_hurt_down</sprite>
+        <sprite>sprites\spr_player_hurt_up</sprite>
+        <sprite>sprites\spr_player_hurt_right</sprite>
+        <sprite>sprites\spr_player_hurt_left</sprite>
+      </sprites>
+      <sprites name="death">
+        <sprite>sprites\spr_player_death_down</sprite>
+        <sprite>sprites\spr_player_death_up</sprite>
+        <sprite>sprites\spr_player_death_left</sprite>
+        <sprite>sprites\spr_player_death_right</sprite>
       </sprites>
       <sprite>sprites\spr_player_shadow</sprite>
     </sprites>
@@ -153,6 +165,7 @@
       <script>scripts\scr_aim_key_pressed.gml</script>
       <script>scripts\scr_aim_key_released.gml</script>
       <script>scripts\scr_cycle_wand_key_pressed.gml</script>
+      <script>scripts\scr_initiate_hurt_state.gml</script>
       <script>scripts\scr_shoot_caster.gml</script>
       <script>scripts\scr_shoot_coil.gml</script>
       <script>scripts\scr_shoot_quill.gml</script>

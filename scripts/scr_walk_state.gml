@@ -37,6 +37,9 @@ if (place_meeting(x, y, obj_par_ladder)) {
     
 }
 
+//Hurt
+scr_initiate_hurt_state();
+
 // get direction
 dir = point_direction(0, 0, obj_input.lxaxis, obj_input.lyaxis);
 

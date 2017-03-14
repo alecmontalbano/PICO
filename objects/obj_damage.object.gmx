@@ -28,7 +28,7 @@
             <string>/// initialize the damage object
 
 damage = 1;
-knockback = 3.5;
+knockback = 4;
 creator = noone;
 alarm[0] = 1;
 </string>
@@ -118,7 +118,8 @@ if (other.id != creator) {
             <string>/// damage all lifeforms
 if (other.id != creator) {
     obj_player_stats.hp -= damage;
-    
+    obj_player.state = scr_hurt_state;
+
     // apply the knockback
     if (instance_exists(creator)) {
         var dir = point_direction(creator.x, creator.y, other.x, other.y);
