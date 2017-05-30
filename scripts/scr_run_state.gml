@@ -1,5 +1,17 @@
 ///scr_run_state
 
+obj_bebu.sight = 3;
+aiming = false;
+
+if (obj_player_stats.hp <=0)
+{
+    image_index = 0;
+    image_speed = .3;
+    alive = false;
+    state = scr_death_state;
+}
+ 
+
 //Walk
 if (state == scr_run_state and !obj_input.run_key and running == true) {
      obj_bebu.spd = WALK_SPD;
@@ -9,6 +21,7 @@ if (state == scr_run_state and !obj_input.run_key and running == true) {
 
 //Roll
 if(obj_input.roll_key and obj_player_stats.stamina >= ROLL_COST) {
+    audio_play_sound(snd_pico_roll, 3, false);
     image_index = 0;
     state = scr_roll_state;
     obj_player_stats.stamina -= ROLL_COST;

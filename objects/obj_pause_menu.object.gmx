@@ -29,9 +29,9 @@
 title = "P A U S E D";
 
 option[0] = "Return";
-option[1] = "Save";
-option[2] = "Load";
-option[3] = "Quit";
+//option[1] = "Save";
+//option[2] = "Load";
+option[1] = "Quit";
 
 // menu index
 menu_index = 0;
@@ -83,6 +83,7 @@ menu_index = 0;
             <string>/// control the menu
 if (alarm[0] &lt;= 0) {
     if (obj_input.menu_nav_down_key) {
+        audio_play_sound(snd_menu_nav, 1, false);
         if (menu_index &lt; array_length_1d(option)-1)
         {
             menu_index++;
@@ -104,16 +105,22 @@ if (alarm[0] &lt;= 0) {
         alarm[0] = room_speed/6;
     }
     
-    if (obj_input.run_key)
+    if (obj_input.roll_key)
     {
             switch(menu_index)
             {
                 case 0:
+                    obj_player_stats.visible = true;
+                    audio_play_sound(snd_menu_resume, 1, false);
                     obj_player_stats.room_start_action = RETURN;
                     room_goto(obj_player_stats.previous_room);
                     break;
                     
                 case 1:
+                    game_end();
+                    break;
+                    
+                /*case 1:
                     scr_save_game();;
                     break;
                     
@@ -128,8 +135,9 @@ if (alarm[0] &lt;= 0) {
                     
                 default:
                     break;
+                    */
             }
-            obj_input.run_key = false;
+            obj_input.roll_key = false;
     }
 }
 </string>
@@ -157,6 +165,7 @@ if (alarm[0] &lt;= 0) {
             <string>/// draw the menu
 var xx = display_get_gui_width()/2;
 var yy = display_get_gui_height()/2;
+draw_set_font(pause_font);
 draw_set_halign(fa_center);
 draw_text(xx, yy-64, title);
 
@@ -166,7 +175,8 @@ for(var i=0; i&lt;=array_length_1d(option)-1; i++)
     if (i == menu_index) {
         draw_set_color(c_white);
     }
-    draw_text(xx, yy+(i*32), option[i]);
+    draw_set_font(option_font);
+    draw_text(xx, yy+(i*50)+20, option[i]);
 }
 draw_set_color(c_white);
 draw_set_halign(fa_left);

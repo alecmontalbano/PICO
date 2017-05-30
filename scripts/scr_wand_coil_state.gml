@@ -1,5 +1,5 @@
 ///scr_wand_coil_state
-
+shooting = false;
 // set initial wand direction
 if (obj_input.rxaxis == 0 and obj_input.ryaxis == 0)
 {   
@@ -35,7 +35,13 @@ if (obj_input.rxaxis == 0 and obj_input.ryaxis == 0)
     scr_cycle_wand_key_pressed();
             
     // SHOOT
-    scr_shoot_coil();
+    if (obj_input.shoot_key and shooting == false) {
+        shooting = true;
+        image_index = 0;
+        sprite_index = spr_player_wand_coil_extend;
+        state = scr_wand_coil_extend_state;
+    }
+
         
 } else {
 
@@ -98,7 +104,12 @@ switch (wandface) {
     scr_cycle_wand_key_pressed();
     
     // SHOOT
-    scr_shoot_coil();
+    if (obj_input.shoot_key and shooting == false) {
+        shooting = true;
+        image_index = 0;
+        sprite_index = spr_player_wand_coil_extend;
+        state = scr_wand_coil_extend_state;
+    }
 }
    
  }

@@ -16,7 +16,7 @@ phy_position_y += vspd;
 
 image_speed = .65; 
 
-if (image_index <= 6)
+if (image_index <= 5)
 {
     switch (face) {
     
@@ -37,7 +37,7 @@ if (image_index <= 6)
         break;        
     }
 
-if (image_index >= 3 and image_index <=6 and attacked == false) {
+if (image_index >= 2 and image_index <=4 and attacked == false) {
    
     var xx = 0;
     var yy = 0;    
@@ -71,14 +71,14 @@ if (image_index >= 3 and image_index <=6 and attacked == false) {
     }   
 }
 
-if (image_index >= 7 and combostate[2])
+if (image_index >= 6 and combostate[2])
 
 {
     attacked = false;
-    state = scr_walk_state;
     canattack = true;
     combo = 0;
      obj_bebu.sight = 3;
+     state = scr_walk_state;
      
 }
 

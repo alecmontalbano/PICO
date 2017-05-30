@@ -1,6 +1,15 @@
 ///scr_hurt_state
+audio_play_sound(snd_bebu, 1, false);
+canattack = true;
+specialactive = false;
 
-if (obj_player_stats.hp <=0 and alive == true)
+if (instance_exists(obj_barrier)) {
+    with(obj_barrier) {
+        instance_destroy();
+    }
+}
+
+if (obj_player_stats.hp <=0)
 {
     image_index = 0;
     image_speed = .3;

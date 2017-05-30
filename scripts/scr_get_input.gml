@@ -21,7 +21,7 @@ aim_key = keyboard_check(ord('Z'));
 
 shoot_key = keyboard_check_pressed(ord('X'));
 
-special_key = keyboard_check_pressed(ord('F'));
+special_key = keyboard_check(ord('F'));
 
 cycle_wand_key = keyboard_check_pressed(ord('C'));
 
@@ -55,24 +55,24 @@ if (gamepad_is_connected(0)) {
     rxaxis = gamepad_axis_value(0, gp_axisrh); 
     ryaxis = gamepad_axis_value(0, gp_axisrv);
     
-    run_key = gamepad_button_check(0, gp_face1);
+    run_key = gamepad_button_check(0, gp_shoulderrb);
      
-    roll_key = gamepad_button_check_pressed(0, gp_face3);
+    roll_key = gamepad_button_check_pressed(0, gp_face1);
     
-    attack_key_pressed = gamepad_button_check_pressed(0, gp_shoulderrb);
-    attack_key_released = gamepad_button_check_released(0, gp_shoulderrb);
+    attack_key_pressed = gamepad_button_check_pressed(0, gp_face3);
+    attack_key_released = gamepad_button_check_released(0, gp_face3);
     
     aim_key = gamepad_button_check(0, gp_shoulderlb);
     
     shoot_key = gamepad_button_check_pressed(0, gp_shoulderrb);
     
-    special_key = gamepad_button_check_pressed(0, gp_face2);
+    special_key = gamepad_button_check(0, gp_face4);
     
-    cycle_wand_key = gamepad_button_check_pressed(0, gp_shoulderl);
+    cycle_wand_key = gamepad_button_check_pressed(0, gp_shoulderr);
 
-    cycle_artifact_key = gamepad_button_check_pressed(0, gp_shoulderr);
+    cycle_artifact_key = gamepad_button_check_pressed(0, gp_shoulderl);
     
-    interact_key = gamepad_button_check_pressed(0, gp_face4);
+    interact_key = gamepad_button_check_pressed(0, gp_face2);
     
     pause_key = gamepad_button_check_pressed(0, gp_start);
     

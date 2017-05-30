@@ -2,8 +2,8 @@
 <object>
   <spriteName>spr_bebu</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
-  <depth>-1000</depth>
+  <visible>0</visible>
+  <depth>-10001</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,10 +30,7 @@ image_index = 0;
 image_speed = 0;
 spd = WALK_SPD;
 state = scr_bebu_idle_state;
-hspd = 0;
-vspd = 0;
-len = 0;
-dir = 0;
+
 
 
 
@@ -45,6 +42,8 @@ sight = 3;
 targetx = 0;
 targety = 0;
 
+xaxis = 0;
+yaxis = 0;
 
 
 </string>
@@ -71,6 +70,8 @@ targety = 0;
             <kind>1</kind>
             <string>/// execute states
 script_execute(state);
+
+
 </string>
           </argument>
         </arguments>

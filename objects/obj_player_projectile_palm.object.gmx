@@ -27,14 +27,14 @@
             <kind>1</kind>
             <string>// instantiate projectile
 
-image_speed = .25;
+image_speed = .2;
 creator = noone;
-knockback = 3;
-damage = .5;
-spd = .15
+knockback = 15;
+damage = 0;
+spd = 2
 phy_bullet = true;
 
-alarm[0] = 20;
+
 
 
 </string>
@@ -42,7 +42,7 @@ alarm[0] = 20;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -59,9 +59,44 @@ alarm[0] = 20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// destroy projectile
-shooting = false;
-instance_destroy();
+            <string>/// create energy
+
+repeat (irandom_range(4, 5)) {
+    //create within area
+    var rand_x = irandom_range(-12, 12);
+    var rand_y = irandom_range(-18, 18);
+    
+    instance_create(x+rand_x, y+rand_y, obj_dust);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (instance_exists(obj_player_projectile_palm) and image_index &gt;= 3) {
+    
+    with (self) {
+        instance_destroy();
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -99,10 +134,7 @@ if (other.id != creator) {
     with (other) {
         physics_apply_impulse(x, y, xforce, yforce);
     }
-    
-    // alarm to destroy projectile
-    
-    alarm[0] = 1;    
+        
 }
 </string>
           </argument>
@@ -127,7 +159,6 @@ if (other.id != creator) {
           <argument>
             <kind>1</kind>
             <string>/// destroy projectile
-shooting = false;
 instance_destroy();
 
 </string>
@@ -161,7 +192,7 @@ instance_destroy();
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>-1</PhysicsObjectSensor>
-  <PhysicsObjectShape>0</PhysicsObjectShape>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0.100000001490116</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -171,7 +202,9 @@ instance_destroy();
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>2,2</point>
-    <point>2,6</point>
+    <point>10,6</point>
+    <point>22,6</point>
+    <point>22,26</point>
+    <point>10,26</point>
   </PhysicsShapePoints>
 </object>

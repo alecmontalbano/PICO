@@ -1,11 +1,10 @@
 ///scr_aim_key_pressed
 
-if (aiming = false and obj_input.aim_key) {
+if (aiming = false and obj_input.aim_key and len == 0 and wandacquired == true) {
+    audio_play_sound(snd_pico_aim, 3, false);
     image_index = 0;
     
     with(obj_player_wand) {
-        x = obj_player.x;
-        y = obj_player.y+3;
         visible = true;
     }
     

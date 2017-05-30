@@ -59,6 +59,120 @@ instance_destroy();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_elder_attack_interactable">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_player.attackacquired = true;
+audio_play_sound(snd_new_item, 3, false);
+with(other) {
+    instance_destroy();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_elder_caster_interactable">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_player.casteracquired = true;
+audio_play_sound(snd_new_item, 3, false);
+with(other) {
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_caretaker_interactable">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_player.wandacquired = true;
+obj_player.caretaker_talked = true;
+audio_play_sound(snd_new_item, 3, false);
+if (instance_exists(obj_door) ) {
+with(obj_door){
+    instance_destroy();
+}
+}
+with(other) {
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bebu_plant_interactable">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_bebu.visible = true;
+obj_player.bebu_acquired = true;
+audio_play_sound(snd_new_item, 3, false);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_speaker">
       <action>
         <libid>1</libid>
@@ -77,8 +191,11 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>/// activate the dialogue
+var dis = point_distance(x, y, obj_player.x, obj_player.y);
+audio_play_sound(snd_panto_dialogue, 1, false);
 with (other)
 {
+
     if (!instance_exists(dialogue))
     {
         dialogue = instance_create(x+xoffset, y+yoffset, obj_dialogue);
@@ -97,6 +214,8 @@ with (other)
         }
     }
 }
+
+
 </string>
           </argument>
         </arguments>

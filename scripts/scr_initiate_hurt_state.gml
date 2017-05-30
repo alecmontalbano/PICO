@@ -1,6 +1,6 @@
 ///scr_initiate_hurt_state()
 
-if (place_meeting(x, y, obj_damage)) {
+if (place_meeting(x, y, obj_damage) and hurtable == true) {
     
         image_index = 0;
         image_speed = .1;

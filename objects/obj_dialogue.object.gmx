@@ -3,7 +3,7 @@
   <spriteName>spr_dialogue_box</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>-1410065408</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,10 +30,10 @@ text = noone;
 text_visible = "";
 text_page = 0;
 text_count = 0;
-spd = .5;
+spd = 3;
 display_scale = display_get_gui_width()/view_wview[0];
 width = sprite_width*display_scale;
-margin = 8;
+margin = 25;
 </string>
           </argument>
         </arguments>
@@ -79,11 +79,18 @@ if (string_width(text_words) &gt;= width-(margin*2))
 text_visible = string_copy(text[text_page], 0, text_count);
 
 // update the text location
-var xx = (x-view_xview[0])*display_scale;
-var yy = (y-view_yview[0])*display_scale;
+var xx = ((x-view_xview[0])*display_scale)+135;
+var yy = ((y-view_yview[0])*display_scale)+50;
+
+//set font
+draw_set_font(panto_speech);
+draw_set_colour(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
 // draw the text
 draw_text_ext(xx+margin, yy+margin, text_visible, -1, width-(margin*2));
+
 
 //add to the count
 text_count += spd;

@@ -139,6 +139,8 @@
     <instance objName="obj_wall" x="62" y="278" name="inst_7E4906D4" locked="0" code="" scaleX="0.970000028610229" scaleY="1.12999999523163" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="542" y="333" name="inst_4281740B" locked="0" code="" scaleX="0.970000028610229" scaleY="1.12999999523163" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="264" y="232" name="inst_D6392D11" locked="0" code="" scaleX="1.80999994277954" scaleY="1.1875" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="362" y="124" name="inst_45C2BF90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bebu" x="282" y="108" name="inst_7112ACFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_panto_mastersheet" x="608" y="0" w="32" h="32" xo="608" yo="384" id="10000575" name="inst_227FE859" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

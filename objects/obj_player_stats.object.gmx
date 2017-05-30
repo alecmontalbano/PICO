@@ -26,15 +26,23 @@
           <argument>
             <kind>1</kind>
             <string>/// initialize the player stats
-hp = 3;
+hp = 4;
 maxhp = hp;
+hpprc = hp/maxhp*100;
+maxhpprc = hpprc;
 stamina = 5;
 maxstamina = stamina;
-magic = 7;
+magic = 10;
 maxmagic = magic;
-expr = 0;
-maxexpr = 1;
-level = 1;
+magicprc = magic/maxmagic*100;
+
+wand_num = 0;
+wand_num_max = 4;
+
+artifact_num = 0;
+artifact_num_max = 3;
+
+draw_set_font(option_font);
 draw_set_color(c_white);
 
 // get the players xstart and ystart
@@ -51,6 +59,9 @@ if (instance_exists(obj_player))
 previous_room = room;
 
 room_start_action = NEW_ROOM;
+
+audio_em = audio_emitter_create();
+audio_emitter_gain(audio_em, .6);
 
 </string>
           </argument>
@@ -107,15 +118,18 @@ if (stamina &lt; maxstamina &amp;&amp; alarm[0] == -1) {
     stamina++;
 }
 
+
 //pause the game
-/*
+
 if (obj_input.pause_key)
 {
     if (room != rm_pause)
     {
+        visible = false;
         if (instance_exists(obj_player))
         {
-           obj_player.persistent = false; 
+           obj_player.persistent = false;
+            
         }
         if (instance_exists(obj_bebu))
         {
@@ -131,7 +145,8 @@ if (obj_input.pause_key)
     } 
     else 
         {
-            room_goto(previous_room);   
+            room_goto(previous_room);
+            visible = true;   
         }
     obj_input.pause_key = false;
 }
@@ -181,6 +196,8 @@ switch (room_start_action)
 
 room_persistent = false;
 room_start_action = NEW_ROOM;
+
+
 </string>
           </argument>
         </arguments>
@@ -204,9 +221,13 @@ room_start_action = NEW_ROOM;
           <argument>
             <kind>1</kind>
             <string>/// draw the stats
-draw_text(32, 16, "HP: " +string(hp) + "/" + string(maxhp));
-draw_text(32, 32, "MAGIC: " +string(magic) + "/" + string(maxmagic));
-draw_text(32, 48, "WAND: " +string(obj_player_wand.wand_num));
+//draw_text(32, 16, "HP: " +string(hp) + "/" + string(maxhp));
+draw_healthbar(32, 16, 160, 32, hpprc, c_black, c_purple, c_red, 0, true, true);
+//draw_text(32, 32, "MAGIC: " +string(magic) + "/" + string(maxmagic));
+draw_healthbar(32, 40, 160, 56, magicprc, c_black, c_purple, c_blue, 0, true, true);
+//draw_text(32, 55, "Wand: " +string(obj_player_stats.wand_num)); 
+//draw_text(32, 80, "Artifact: " +string(obj_player_stats.artifact_num));
+
 
 </string>
           </argument>

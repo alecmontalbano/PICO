@@ -1,30 +1,40 @@
 ///scr_wand_palm_state
 
+shooting = false;
+image_speed = .4;
+
+ scr_get_wand_face();
+
 // set initial wand direction
 if (obj_input.rxaxis == 0 and obj_input.ryaxis == 0)
 {   
- 
+    
+
     switch (obj_player.face) {
     
         case RIGHT:
+            wandface = WANDRIGHT;
             image_angle = 0;
             depth = -11;
             x = obj_player.x+1;
             break;                 
         
         case UP:
+            wandface = WANDUP;
             image_angle = 90;
             depth = -8;
             x = obj_player.x+3;
             break;
             
         case LEFT:
+            wandface = WANDLEFT;
             image_angle = 180;
             depth = -8;
             x = obj_player.x-1;
             break;
         
         case DOWN:
+            wandface = WANDDOWN;
             image_angle = 270;
             depth = -12;
             x = obj_player.x-3;
@@ -35,7 +45,12 @@ if (obj_input.rxaxis == 0 and obj_input.ryaxis == 0)
     scr_cycle_wand_key_pressed();    
             
     // SHOOT
-    scr_shoot_palm();
+    if (obj_input.shoot_key and shooting == false) {
+        shooting = true;
+        image_index = 0;
+        sprite_index = spr_player_wand_palm_fan;
+        state = scr_wand_palm_fan_state;
+    }
         
 } else {
 
@@ -47,7 +62,6 @@ if ((abs(obj_input.rxaxis) > 0) || (abs(obj_input.ryaxis) > 0))
     //how fast the wand points
     image_angle += median(-55, angdif, 55);
     
-    scr_get_wand_face();
 
 
 switch (wandface) {
@@ -97,11 +111,17 @@ switch (wandface) {
     // CYCLE WAND
     scr_cycle_wand_key_pressed();
     
-    // SHOOT
-    scr_shoot_palm();
-}
+     // SHOOT
+    if (obj_input.shoot_key and shooting == false) {
+        shooting = true;
+        image_index = 0;
+        sprite_index = spr_player_wand_palm_fan;
+        state = scr_wand_palm_fan_state;
+    }
+    
+    }
    
- }
+}
  
 //back to wand inactive state       
 if (wandactive = true and !obj_input.aim_key) {

@@ -1,5 +1,20 @@
 ///scr_walk_state
 
+obj_bebu.sight = 3;
+aiming = false;
+hurtable = true;
+canattack = true;
+running = false;
+
+if (obj_player_stats.hp <=0)
+{
+    image_index = 0;
+    image_speed = .3;
+    alive = false;
+    state = scr_death_state;
+}
+ 
+
 //Run
 if (state == scr_walk_state and obj_input.run_key and running == false) {
     image_index = 0;
@@ -9,7 +24,8 @@ if (state == scr_walk_state and obj_input.run_key and running == false) {
 }
 
 //Attack
-if(obj_input.attack_key_pressed and canattack == true) {
+if(obj_input.attack_key_pressed and canattack == true and attackacquired == true) {
+    audio_play_sound(snd_pico_attack_1_2, 3, false);
     image_index = 0;
     state = combostate[combo];
     canattack = false;  
@@ -20,6 +36,7 @@ if(obj_input.attack_key_pressed and canattack == true) {
 
 //Roll
 if(obj_input.roll_key and obj_player_stats.stamina >= ROLL_COST) {
+    audio_play_sound(snd_pico_roll, 3, false);
     image_index = 0;
     state = scr_roll_state;
     obj_player_stats.stamina -= ROLL_COST;
@@ -36,9 +53,6 @@ if (place_meeting(x, y, obj_par_ladder)) {
     state = scr_climb_state;
     
 }
-
-//Hurt
-scr_initiate_hurt_state();
 
 // get direction
 dir = point_direction(0, 0, obj_input.lxaxis, obj_input.lyaxis);
@@ -66,6 +80,9 @@ if (len == 0)
     
     //Aim
     scr_aim_key_pressed();
+    
+    //Special
+    scr_special_key_pressed();
         
     switch (face) {
     
@@ -95,6 +112,7 @@ if (len == 0)
         }
         
 } else {
+
     
     image_speed = .2;
     

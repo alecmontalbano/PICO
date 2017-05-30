@@ -16,28 +16,28 @@ phy_position_y += vspd;
 
 image_speed = .6; 
 
-if (image_index <= 6)
+if (image_index <= 5)
 {
     switch (face) {
     
     case DOWN:
-        sprite_index = spr_player_attack_3_down;
+        sprite_index = spr_player_roll_attack_down;
         break;
 
     case UP:
-        sprite_index = spr_player_attack_3_up;
+        sprite_index = spr_player_roll_attack_up;
         break;
         
     case LEFT:
-        sprite_index = spr_player_attack_3_left;
+        sprite_index = spr_player_roll_attack_left;
         break;
         
     case RIGHT:
-        sprite_index = spr_player_attack_3_right;
+        sprite_index = spr_player_roll_attack_right;
         break;        
     }
 
-if (image_index >= 3 and image_index <=6 and attacked == false) {
+if (image_index >= 2 and image_index <=4 and attacked == false) {
     
     var xx = 0;
     var yy = 0;    
@@ -71,7 +71,7 @@ if (image_index >= 3 and image_index <=6 and attacked == false) {
     }   
 }
 
-if (image_index >= 7 and state == scr_roll_attack_state)
+if (image_index >= 6 and state == scr_roll_attack_state)
 
 {
     if (obj_input.run_key and running == true) {

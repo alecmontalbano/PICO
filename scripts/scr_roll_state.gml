@@ -2,8 +2,9 @@
 
 
 
-if (obj_input.attack_key_pressed and rolled == true and state == scr_roll_state)
+if (obj_input.attack_key_pressed and rolled == true and state == scr_roll_state and attackacquired == true)
 {
+    audio_play_sound(snd_pico_attack_3, 3, false);
     image_index = 0;
     state = scr_roll_attack_state;
     rolled = false;

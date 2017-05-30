@@ -1,4 +1,5 @@
 ///scr_wand_caster_state
+ image_speed = .175;
 
 // set initial wand direction
 if (obj_input.rxaxis == 0 and obj_input.ryaxis == 0)

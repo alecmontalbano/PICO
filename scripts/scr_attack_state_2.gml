@@ -5,6 +5,7 @@ scr_attack_key_released();
 
  
 if(image_index >=3 and combostate[1] and attacked == true and obj_input.attack_key_pressed and canattack == true) {
+    audio_play_sound(snd_pico_attack_3, 3, false);
     image_index = 0;
     state = combostate[combo];
     canattack = false;  
@@ -91,10 +92,10 @@ if (image_index >= 7 and combostate[1])
 
 {
     attacked = false;
-    state = scr_walk_state;
     canattack = true;
     combo = 0;
      obj_bebu.sight = 3;
+     state = scr_walk_state;
      
 }
 

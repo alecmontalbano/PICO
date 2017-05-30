@@ -2,6 +2,7 @@
 scr_attack_key_released();
  
 if(image_index >=3 and combostate[0] and attacked == true and obj_input.attack_key_pressed and canattack == true) {
+    audio_play_sound(snd_pico_attack_1_2, 3, false);
     image_index = 0;
     state = combostate[combo];
     canattack = false;  
@@ -36,7 +37,7 @@ if (image_index <= 6)
         break;
 
     case UP:
-        sprite_index = spr_player_attack_up_alt;
+        sprite_index = spr_player_attack_up;
         break;
         
     case LEFT:
@@ -78,7 +79,7 @@ if (image_index >=4 and attacked == false) {
     }
     
     var damage = instance_create(xx, yy, obj_damage); 
-    damage.creator = id;
+    obj_damage.creator = id;
     attacked = true;
     }
 }
@@ -87,11 +88,10 @@ if (image_index >= 7 and combostate[0])
 
 {
     attacked = false;
-    state = scr_walk_state;
     canattack = true;
     combo = 0;
     obj_bebu.sight = 3;
-    
+    state = scr_walk_state;
     
 }
 

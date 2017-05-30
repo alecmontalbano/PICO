@@ -4,7 +4,41 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_panto_city</sound>
+    <sound>sound\snd_channel</sound>
+    <sound>sound\snd_tentaberg_fight</sound>
+    <sound>sound\snd_hub</sound>
+    <sound>sound\snd_onis</sound>
+    <sound>sound\snd_nexus</sound>
+    <sound>sound\snd_onima_fight</sound>
+    <sound>sound\snd_dryke</sound>
+    <sound>sound\snd_analectium</sound>
+    <sound>sound\snd_evocator_fight</sound>
+    <sound>sound\snd_stelforn</sound>
+    <sound>sound\snd_tower</sound>
+    <sound>sound\snd_zel_fight</sound>
+    <sound>sound\snd_end</sound>
+    <sound>sound\snd_panto_dialogue</sound>
+    <sound>sound\snd_pico_aim</sound>
+    <sound>sound\snd_pico_attack_1_2</sound>
+    <sound>sound\snd_pico_attack_3</sound>
+    <sound>sound\snd_artifact_switch</sound>
+    <sound>sound\snd_caster_shoot</sound>
+    <sound>sound\snd_caster_destroy</sound>
+    <sound>sound\snd_pico_exit</sound>
+    <sound>sound\snd_pico_roll</sound>
+    <sound>sound\snd_pico_die</sound>
+    <sound>sound\snd_bebu</sound>
+    <sound>sound\snd_new_item</sound>
+    <sounds name="menu sounds">
+      <sound>sound\snd_start_menu</sound>
+      <sound>sound\snd_menu_resume</sound>
+      <sound>sound\snd_menu_nav</sound>
+      <sound>sound\snd_menu_quit</sound>
+      <sound>sound\snd_menu_start</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Pico">
       <sprites name="walk">
@@ -21,11 +55,10 @@
       </sprites>
       <sprites name="attack">
         <sprites name="swing1">
-          <sprite>sprites\spr_player_attack_up</sprite>
           <sprite>sprites\spr_player_attack_down</sprite>
+          <sprite>sprites\spr_player_attack_up</sprite>
           <sprite>sprites\spr_player_attack_left</sprite>
           <sprite>sprites\spr_player_attack_right</sprite>
-          <sprite>sprites\spr_player_attack_up_alt</sprite>
         </sprites>
         <sprites name="swing2">
           <sprite>sprites\spr_player_attack_2_up</sprite>
@@ -38,6 +71,12 @@
           <sprite>sprites\spr_player_attack_3_down</sprite>
           <sprite>sprites\spr_player_attack_3_left</sprite>
           <sprite>sprites\spr_player_attack_3_right</sprite>
+        </sprites>
+        <sprites name="roll attack">
+          <sprite>sprites\spr_player_roll_attack_down</sprite>
+          <sprite>sprites\spr_player_roll_attack_up</sprite>
+          <sprite>sprites\spr_player_roll_attack_left</sprite>
+          <sprite>sprites\spr_player_roll_attack_right</sprite>
         </sprites>
       </sprites>
       <sprites name="roll">
@@ -64,17 +103,67 @@
         <sprite>sprites\spr_player_aim_left</sprite>
         <sprite>sprites\spr_player_aim_right</sprite>
         <sprites name="wands">
+          <sprite>sprites\spr_player_wand_base</sprite>
           <sprite>sprites\spr_player_wand_caster</sprite>
-          <sprite>sprites\spr_player_wand_coil</sprite>
           <sprite>sprites\spr_player_wand_quill</sprite>
-          <sprite>sprites\spr_player_wand_palm</sprite>
+          <sprites name="coil">
+            <sprite>sprites\spr_player_wand_coil</sprite>
+            <sprite>sprites\spr_player_wand_coil_extend</sprite>
+            <sprite>sprites\spr_player_wand_coil_retract</sprite>
+          </sprites>
+          <sprites name="palm">
+            <sprite>sprites\spr_player_wand_palm</sprite>
+            <sprite>sprites\spr_player_wand_palm_fan</sprite>
+          </sprites>
         </sprites>
       </sprites>
       <sprites name="projectiles">
         <sprite>sprites\spr_player_projectile_caster</sprite>
-        <sprite>sprites\spr_player_projectile_coil</sprite>
         <sprite>sprites\spr_player_projectile_quill</sprite>
         <sprite>sprites\spr_player_projectile_palm</sprite>
+      </sprites>
+      <sprites name="artifact abilities">
+        <sprites name="barrier">
+          <sprite>sprites\spr_player_slime_abdomen</sprite>
+          <sprite>sprites\spr_player_barrier_cast_up</sprite>
+          <sprite>sprites\spr_player_barrier_cast_down</sprite>
+          <sprite>sprites\spr_player_barrier_cast_left</sprite>
+          <sprite>sprites\spr_player_barrier_cast_right</sprite>
+        </sprites>
+        <sprites name="speed">
+          <sprites name="idle">
+            <sprite>sprites\spr_player_speed_idle_down</sprite>
+            <sprite>sprites\spr_player_speed_idle_up</sprite>
+            <sprite>sprites\spr_player_speed_idle_left</sprite>
+            <sprite>sprites\spr_player_speed_idle_right</sprite>
+          </sprites>
+          <sprites name="cast">
+            <sprite>sprites\spr_player_speed_cast_down</sprite>
+            <sprite>sprites\spr_player_speed_cast_up</sprite>
+            <sprite>sprites\spr_player_speed_cast_left</sprite>
+            <sprite>sprites\spr_player_speed_cast_right</sprite>
+          </sprites>
+          <sprites name="move">
+            <sprite>sprites\spr_player_speed_move_down</sprite>
+            <sprite>sprites\spr_player_speed_move_up</sprite>
+            <sprite>sprites\spr_player_speed_move_left</sprite>
+            <sprite>sprites\spr_player_speed_move_right</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="storm">
+          <sprites name="cast">
+            <sprite>sprites\spr_player_storm_cast_down</sprite>
+            <sprite>sprites\spr_player_storm_cast_up</sprite>
+            <sprite>sprites\spr_player_storm_cast_left</sprite>
+            <sprite>sprites\spr_player_storm_cast_right</sprite>
+          </sprites>
+          <sprites name="attack">
+            <sprite>sprites\spr_player_storm_attack_down</sprite>
+            <sprite>sprites\spr_player_storm_attack_up</sprite>
+            <sprite>sprites\spr_player_storm_attack_left</sprite>
+            <sprite>sprites\spr_player_storm_attack_right</sprite>
+          </sprites>
+        </sprites>
       </sprites>
       <sprites name="hurt">
         <sprite>sprites\spr_player_hurt_down</sprite>
@@ -90,35 +179,197 @@
       </sprites>
       <sprite>sprites\spr_player_shadow</sprite>
     </sprites>
-    <sprites name="Bebu">
-      <sprite>sprites\spr_bebu</sprite>
-      <sprite>sprites\spr_bebu_hover</sprite>
-    </sprites>
     <sprites name="NPCs">
       <sprites name="Panto">
         <sprite>sprites\spr_sick_nana</sprite>
+        <sprite>sprites\spr_caretaker</sprite>
+        <sprite>sprites\spr_panto_elder</sprite>
+        <sprite>sprites\spr_panto_woman1</sprite>
+        <sprite>sprites\spr_panto_woman2</sprite>
+        <sprite>sprites\spr_panto_man1</sprite>
+        <sprite>sprites\spr_panto_man2</sprite>
+        <sprite>sprites\spr_panto_student1</sprite>
+        <sprite>sprites\spr_panto_student2</sprite>
+        <sprite>sprites\spr_panto_student3</sprite>
+        <sprite>sprites\spr_panto_student4</sprite>
+        <sprite>sprites\spr_panto_student5</sprite>
+        <sprite>sprites\spr_panto_student6</sprite>
+      </sprites>
+      <sprites name="Bebu">
+        <sprite>sprites\spr_bebu</sprite>
+        <sprite>sprites\spr_bebu_hover</sprite>
+      </sprites>
+      <sprites name="Onis">
+        <sprite>sprites\spr_onis_citizen_1</sprite>
+        <sprite>sprites\spr_onis_citizen_2</sprite>
+        <sprite>sprites\spr_onis_citizen_3</sprite>
+        <sprite>sprites\spr_onis_citizen_4</sprite>
+        <sprite>sprites\spr_onis_citizen_5</sprite>
+        <sprite>sprites\spr_onis_citizen_onoh</sprite>
+      </sprites>
+      <sprites name="Dryke">
+        <sprite>sprites\spr_dryke_scholar_1</sprite>
+        <sprite>sprites\spr_dryke_scholar_2</sprite>
+        <sprite>sprites\spr_dryke_scholar_3</sprite>
+        <sprite>sprites\spr_dryke_scholar_4</sprite>
+        <sprite>sprites\spr_dryke_scholar_5</sprite>
+      </sprites>
+      <sprites name="Stelforn">
+        <sprite>sprites\spr_stelforn_citizen_1</sprite>
+        <sprite>sprites\spr_stelforn_citizen_2</sprite>
+        <sprite>sprites\spr_stelforn_citizen_3</sprite>
+        <sprite>sprites\spr_stelforn_citizen_4</sprite>
+        <sprite>sprites\spr_stelforn_citizen_5</sprite>
+        <sprite>sprites\spr_stelforn_citizen_6</sprite>
       </sprites>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Panto">
+        <sprites name="Hopper">
+          <sprite>sprites\spr_hopper_idle</sprite>
+          <sprite>sprites\spr_hopper_attack</sprite>
+        </sprites>
+        <sprites name="Eyepost">
+          <sprite>sprites\spr_eyepost_idle</sprite>
+          <sprite>sprites\spr_eyepost_attack</sprite>
+          <sprite>sprites\spr_eyepost_projectile</sprite>
+        </sprites>
+        <sprites name="Tentaberg">
+          <sprite>sprites\spr_tentaberg_idle</sprite>
+          <sprite>sprites\spr_tentaberg_attack</sprite>
+          <sprite>sprites\spr_tentaberg_death</sprite>
+          <sprite>sprites\spr_tentaberg_projectile</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Onis">
         <sprite>sprites\spr_enemy_slime</sprite>
+        <sprites name="Burrower">
+          <sprite>sprites\spr_burrower_rertact</sprite>
+          <sprite>sprites\spr_burrower_reveal</sprite>
+          <sprite>sprites\spr_burrower_projectile</sprite>
+        </sprites>
+        <sprites name="Onima">
+          <sprite>sprites\spr_onima_idle</sprite>
+          <sprite>sprites\spr_onima_attack</sprite>
+          <sprite>sprites\spr_onima_shield_cast</sprite>
+          <sprite>sprites\spr_onima_death</sprite>
+          <sprite>sprites\spr_onima_shield</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Dryke">
+        <sprites name="Conehead">
+          <sprite>sprites\spr_conehead_idle</sprite>
+          <sprite>sprites\spr_conehead_attack</sprite>
+        </sprites>
+        <sprites name="Prism">
+          <sprite>sprites\spr_prism_close</sprite>
+          <sprite>sprites\spr_prism_open</sprite>
+        </sprites>
+        <sprites name="Evocator">
+          <sprite>sprites\spr_evocator_idle</sprite>
+          <sprite>sprites\spr_evocator_death</sprite>
+          <sprite>sprites\spr_evocator_smoke</sprite>
+          <sprite>sprites\spr_evocator_ring</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Stelforn">
+        <sprites name="Crawler">
+          <sprite>sprites\spr_crawler_idle</sprite>
+          <sprite>sprites\spr_crawler_attack</sprite>
+        </sprites>
+        <sprites name="Clouder">
+          <sprite>sprites\spr_clouder_idle</sprite>
+          <sprite>sprites\spr_clouder_attack</sprite>
+        </sprites>
+        <sprites name="Zel">
+          <sprite>sprites\spr_zel_idle</sprite>
+          <sprite>sprites\spr_zel_attack_down</sprite>
+          <sprite>sprites\spr_zel_attack_right</sprite>
+          <sprite>sprites\spr_zel_attack_left</sprite>
+          <sprite>sprites\spr_zel_teleport_out</sprite>
+          <sprite>sprites\spr_zel_teleport_in</sprite>
+          <sprite>sprites\spr_zel_death</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Prismatic Seam">
+        <sprite>sprites\spr_umbra_bebu_idle</sprite>
+        <sprite>sprites\spr_umbra_bebu_attack</sprite>
+        <sprite>sprites\spr_umbra_bebu_death</sprite>
+        <sprite>sprites\spr_umbra_slime</sprite>
       </sprites>
     </sprites>
     <sprites name="Collectibles">
       <sprite>sprites\spr_health</sprite>
       <sprite>sprites\spr_expr</sprite>
+      <sprite>sprites\spr_coil_collectable</sprite>
+      <sprite>sprites\spr_quill_collectable</sprite>
+      <sprite>sprites\spr_palm_collectable</sprite>
+      <sprite>sprites\spr_barrier_artifact</sprite>
+      <sprite>sprites\spr_speed_artifact</sprite>
+      <sprite>sprites\spr_lightning_artifact</sprite>
     </sprites>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_warp</sprite>
-    <sprite>sprites\spr_climbable</sprite>
-    <sprite>sprites\spr_checkpoint</sprite>
-    <sprite>sprites\spr_hitbox</sprite>
-    <sprite>sprites\spr_sign</sprite>
-    <sprite>sprites\spr_dialogue_box</sprite>
+    <sprites name="Effects">
+      <sprite>sprites\spr_energy</sprite>
+      <sprite>sprites\spr_slime</sprite>
+      <sprite>sprites\spr_dust</sprite>
+      <sprite>sprites\spr_stardust</sprite>
+      <sprite>sprites\spr_urn_dust</sprite>
+      <sprite>sprites\spr_tentaberg_blood</sprite>
+      <sprite>sprites\spr_hopper_blood</sprite>
+      <sprite>sprites\spr_player_speed_move_trail</sprite>
+    </sprites>
+    <sprites name="Level">
+      <sprite>sprites\spr_warp</sprite>
+      <sprite>sprites\spr_climbable</sprite>
+      <sprite>sprites\spr_checkpoint</sprite>
+      <sprites name="panto">
+        <sprite>sprites\spr_shoot_urn</sprite>
+        <sprite>sprites\spr_attack_urn</sprite>
+        <sprite>sprites\spr_panto_fountain_bottom</sprite>
+        <sprite>sprites\spr_panto_fountain_top</sprite>
+        <sprite>sprites\spr_bookshelf</sprite>
+        <sprite>sprites\spr_bebu_plant</sprite>
+        <sprite>sprites\spr_door</sprite>
+        <sprite>sprites\spr_sign</sprite>
+        <sprite>sprites\spr_channel_switch</sprite>
+        <sprite>sprites\spr_channel_switch_active</sprite>
+      </sprites>
+      <sprites name="onis">
+        <sprite>sprites\spr_coil_hook</sprite>
+        <sprite>sprites\spr_onis_switch</sprite>
+        <sprite>sprites\spr_onis_switch_active</sprite>
+        <sprite>sprites\spr_nexus_boss_door</sprite>
+      </sprites>
+      <sprites name="dryke">
+        <sprite>sprites\spr_dryke_switch_female</sprite>
+        <sprite>sprites\spr_dryke_switch_male</sprite>
+        <sprite>sprites\spr_dryke_boss_door</sprite>
+      </sprites>
+      <sprites name="stelforn">
+        <sprite>sprites\spr_stelforn_switch</sprite>
+        <sprite>sprites\spr_stelforn_switch_active</sprite>
+        <sprite>sprites\spr_stelforn_boss_door</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Colliders">
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_hitbox</sprite>
+      <sprite>sprites\spr_medium_hitbox</sprite>
+      <sprite>sprites\spr_storm_hitbox</sprite>
+    </sprites>
+    <sprites name="UI">
+      <sprite>sprites\spr_dialogue_box</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_grass</background>
     <background>background\bg_panto_mastersheet</background>
+    <background>background\bg_panto_tileset</background>
+    <background>background\bg_panto_tileset_2</background>
+    <background>background\bg_panto_final_tileset</background>
+    <background>background\bg_hub_final_tileset</background>
+    <background>background\bg_onis_final_tileset</background>
+    <background>background\bg_dryke_final_tileset</background>
+    <background>background\bg_stellforn_final_tileset</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -131,27 +382,162 @@
       <script>scripts\scr_climb_state.gml</script>
       <script>scripts\scr_hurt_state.gml</script>
       <script>scripts\scr_death_state.gml</script>
-      <scripts name="player wand states">
-        <script>scripts\scr_wand_holstered_state.gml</script>
-        <script>scripts\scr_wand_caster_state.gml</script>
-        <script>scripts\scr_wand_coil_state.gml</script>
-        <script>scripts\scr_wand_quill_state.gml</script>
-        <script>scripts\scr_wand_palm_state.gml</script>
-      </scripts>
-      <scripts name="player projectile states">
-        <script>scripts\scr_player_projectile_inactive_state.gml</script>
-        <script>scripts\scr_player_projectile_active_state.gml</script>
-      </scripts>
       <scripts name="player attack states">
         <script>scripts\scr_attack_state.gml</script>
         <script>scripts\scr_attack_state_2.gml</script>
         <script>scripts\scr_attack_state_3.gml</script>
         <script>scripts\scr_roll_attack_state.gml</script>
       </scripts>
+      <scripts name="player wand states">
+        <script>scripts\scr_wand_holstered_state.gml</script>
+        <script>scripts\scr_wand_base_state.gml</script>
+        <script>scripts\scr_wand_caster_state.gml</script>
+        <script>scripts\scr_wand_quill_state.gml</script>
+        <scripts name="coil states">
+          <script>scripts\scr_wand_coil_state.gml</script>
+          <script>scripts\scr_wand_coil_extend_state.gml</script>
+          <script>scripts\scr_wand_coil_retract_state.gml</script>
+        </scripts>
+        <scripts name="palm states">
+          <script>scripts\scr_wand_palm_state.gml</script>
+          <script>scripts\scr_wand_palm_fan_state.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="player artifact states">
+        <scripts name="barrier">
+          <script>scripts\scr_barrier_cast_state.gml</script>
+          <script>scripts\scr_barrier_state.gml</script>
+        </scripts>
+        <scripts name="speed">
+          <script>scripts\scr_speed_cast_state.gml</script>
+          <script>scripts\scr_speed_state.gml</script>
+        </scripts>
+        <scripts name="storm">
+          <script>scripts\scr_storm_cast_state.gml</script>
+          <script>scripts\scr_storm_state.gml</script>
+        </scripts>
+      </scripts>
+    </scripts>
+    <scripts name="enemy states">
+      <scripts name="enemy helper scripts">
+        <script>scripts\scr_move_axis.gml</script>
+        <script>scripts\scr_enemy_check_for_player.gml</script>
+        <script>scripts\scr_enemy_choose_next_state.gml</script>
+      </scripts>
+      <scripts name="panto">
+        <scripts name="eyepost">
+          <script>scripts\scr_eyepost_idle_state.gml</script>
+          <script>scripts\scr_eyepost_shoot_state.gml</script>
+          <script>scripts\scr_eyepost_frozen_state.gml</script>
+          <scripts name="eyepost helper scripts">
+            <script>scripts\scr_eyepost_check_for_player.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="hopper">
+          <script>scripts\scr_hopper_idle_state.gml</script>
+          <script>scripts\scr_hopper_stall_state.gml</script>
+          <script>scripts\scr_hopper_wander_state.gml</script>
+          <script>scripts\scr_hopper_chase_state.gml</script>
+          <script>scripts\scr_hopper_frozen_state.gml</script>
+          <scripts name="hopper helper scripts">
+            <script>scripts\scr_hopper_choose_next_state.gml</script>
+            <script>scripts\scr_hopper_check_for_player.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="tentaberg">
+          <script>scripts\scr_tentaberg_idle_state.gml</script>
+          <script>scripts\scr_tentaberg_shoot_state.gml</script>
+          <script>scripts\scr_tentaberg_death_state.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="onis">
+        <scripts name="slime">
+          <script>scripts\scr_slime_idle_state.gml</script>
+          <script>scripts\scr_slime_stall_state.gml</script>
+          <script>scripts\scr_slime_wander_state.gml</script>
+          <script>scripts\scr_slime_chase_state.gml</script>
+          <scripts name="slime helper scripts">
+            <script>scripts\scr_slime_check_for_player.gml</script>
+            <script>scripts\scr_slime_choose_next_state.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="onima">
+          <script>scripts\scr_onima_idle_state.gml</script>
+          <script>scripts\scr_onima_attack_state.gml</script>
+          <script>scripts\scr_move_axis_onima.gml</script>
+          <script>scripts\scr_onima_death_state.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="dryke">
+        <scripts name="conehead">
+          <script>scripts\scr_conehead_idle_state.gml</script>
+          <script>scripts\scr_conehead_stall_state.gml</script>
+          <script>scripts\scr_conehead_wander_state.gml</script>
+          <script>scripts\scr_conehead_chase_state.gml</script>
+          <script>scripts\scr_conehead_frozen_state.gml</script>
+          <scripts name="conehead helper scripts">
+            <script>scripts\scr_conehead_choose_next_state.gml</script>
+            <script>scripts\scr_conehead_check_for_player.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="prism">
+          <script>scripts\scr_prism_idle_state.gml</script>
+          <script>scripts\scr_prism_stall_state.gml</script>
+          <script>scripts\scr_prism_wander_state.gml</script>
+          <script>scripts\scr_prism_chase_state.gml</script>
+          <script>scripts\scr_prism_frozen_state.gml</script>
+          <scripts name="prism helper scripts">
+            <script>scripts\scr_prism_choose_next_state.gml</script>
+            <script>scripts\scr_prism_check_for_player.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="Evocator">
+          <scripts name="Ring">
+            <script>scripts\scr_evocator_ring_wander_state.gml</script>
+            <script>scripts\scr_evocator_ring_frozen_state.gml</script>
+          </scripts>
+          <script>scripts\scr_evocator_idle_state.gml</script>
+          <script>scripts\scr_evocator_death_state.gml</script>
+          <script>scripts\scr_evocator_smoke_state.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="stelforn">
+        <scripts name="crawler">
+          <script>scripts\scr_crawler_idle_state.gml</script>
+          <script>scripts\scr_crawler_stall_state.gml</script>
+          <script>scripts\scr_crawler_wander_state.gml</script>
+          <script>scripts\scr_crawler_chase_state.gml</script>
+          <script>scripts\scr_crawler_frozen_state.gml</script>
+          <scripts name="crawler helper scripts">
+            <script>scripts\scr_crawler_choose_next_state.gml</script>
+            <script>scripts\scr_crawler_check_for_player.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="clouder">
+          <script>scripts\scr_clouder_idle_state.gml</script>
+          <script>scripts\scr_clouder_stall_state.gml</script>
+          <script>scripts\scr_clouder_wander_state.gml</script>
+          <script>scripts\scr_clouder_chase_state.gml</script>
+          <script>scripts\scr_clouder_frozen_state.gml</script>
+          <scripts name="clouder helper scripts">
+            <script>scripts\scr_clouder_choose_next_state.gml</script>
+            <script>scripts\scr_clouder_check_for_player.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="zel">
+          <script>scripts\scr_zel_idle_state.gml</script>
+          <script>scripts\scr_zel_attack_state.gml</script>
+          <script>scripts\scr_zel_death_state.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="prismatic sanctuary">
+        <script>scripts\scr_umbra_bebu_idle_state.gml</script>
+        <script>scripts\scr_umbra_bebu_attack_state.gml</script>
+        <script>scripts\scr_umbra_bebu_death_state.gml</script>
+      </scripts>
     </scripts>
     <scripts name="bebu states">
       <script>scripts\scr_bebu_idle_state.gml</script>
-      <script>scripts\scr_bebu_stall_state.gml</script>
       <script>scripts\scr_bebu_follow_state.gml</script>
       <scripts name="bebu helper scripts">
         <script>scripts\scr_bebu_check_for_player.gml</script>
@@ -165,42 +551,67 @@
       <script>scripts\scr_aim_key_pressed.gml</script>
       <script>scripts\scr_aim_key_released.gml</script>
       <script>scripts\scr_cycle_wand_key_pressed.gml</script>
-      <script>scripts\scr_initiate_hurt_state.gml</script>
       <script>scripts\scr_shoot_caster.gml</script>
       <script>scripts\scr_shoot_coil.gml</script>
       <script>scripts\scr_shoot_quill.gml</script>
       <script>scripts\scr_shoot_palm.gml</script>
+      <script>scripts\scr_special_key_pressed.gml</script>
+      <script>scripts\scr_special_key_released.gml</script>
       <script>scripts\scr_chance.gml</script>
       <script>scripts\scr_string_copy_words.gml</script>
       <script>scripts\scr_save_game.gml</script>
       <script>scripts\scr_load_game.gml</script>
     </scripts>
-    <scripts name="enemy states">
-      <script>scripts\scr_enemy_idle_state.gml</script>
-      <script>scripts\scr_enemy_stall_state.gml</script>
-      <script>scripts\scr_enemy_wander_state.gml</script>
-      <script>scripts\scr_enemy_chase_state.gml</script>
-      <scripts name="enemy helper scripts">
-        <script>scripts\scr_enemy_choose_next_state.gml</script>
-        <script>scripts\scr_enemy_check_for_player.gml</script>
-      </scripts>
-    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\panto_speech</font>
+    <font>fonts\start_font</font>
+    <font>fonts\pause_font</font>
+    <font>fonts\option_font</font>
+  </fonts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\obj_player</object>
       <object>objects\obj_player_wand</object>
+      <object>objects\obj_barrier</object>
+      <object>objects\obj_speed_fade_effect</object>
+      <object>objects\obj_speed_trail_effect</object>
+      <object>objects\obj_storm_flash_effect</object>
     </objects>
     <objects name="Enemies">
       <objects name="Panto">
+        <object>objects\obj_enemy_hopper</object>
+        <object>objects\obj_enemy_eyepost</object>
+        <object>objects\obj_enemy_tentaberg</object>
+      </objects>
+      <objects name="Onis">
         <object>objects\obj_enemy_slime</object>
+        <object>objects\obj_onima</object>
+      </objects>
+      <objects name="Dryke">
+        <object>objects\obj_enemy_conehead</object>
+        <object>objects\obj_enemy_prism</object>
+        <object>objects\obj_evocator</object>
+        <object>objects\obj_evocator_ring</object>
+      </objects>
+      <objects name="Stelforn">
+        <object>objects\obj_enemy_crawler</object>
+        <object>objects\obj_enemy_clouder</object>
+        <object>objects\obj_zel</object>
+      </objects>
+      <objects name="Prismatic Seam">
+        <object>objects\obj_umbra_slime</object>
+        <object>objects\obj_umbra_bebu</object>
       </objects>
     </objects>
     <objects name="Hitboxes">
       <object>objects\obj_interact</object>
       <object>objects\obj_damage</object>
+      <object>objects\obj_storm_damage</object>
+      <object>objects\obj_onima_slash</object>
+      <object>objects\obj_projectile_eyepost</object>
+      <object>objects\obj_projectile_tentaberg</object>
       <object>objects\obj_player_projectile_caster</object>
-      <object>objects\obj_player_projectile_coil</object>
       <object>objects\obj_player_projectile_quill</object>
       <object>objects\obj_player_projectile_palm</object>
     </objects>
@@ -210,9 +621,26 @@
       <object>objects\obj_warp</object>
       <objects name="Collectibles">
         <object>objects\obj_health</object>
-        <object>objects\obj_expr</object>
+        <object>objects\obj_increase_max_health</object>
+        <object>objects\obj_hypha_coil</object>
+        <object>objects\obj_chrono_quill</object>
+        <object>objects\obj_leto_palm</object>
+        <object>objects\obj_fungal_organene</object>
+        <object>objects\obj_cosmic_sigil</object>
+        <object>objects\obj_diab_jewel</object>
       </objects>
       <object>objects\obj_wall</object>
+      <objects name="Panto">
+        <object>objects\obj_panto_fountain_bottom</object>
+        <object>objects\obj_panto_fountain_top</object>
+        <object>objects\obj_shoot_urn</object>
+        <object>objects\obj_attack_urn</object>
+        <object>objects\obj_door</object>
+        <object>objects\obj_bookshelf</object>
+      </objects>
+      <objects name="Onis">
+        <object>objects\obj_coil_hook</object>
+      </objects>
     </objects>
     <objects name="Dialogue">
       <object>objects\obj_dialogue</object>
@@ -225,20 +653,166 @@
       <object>objects\obj_input</object>
     </objects>
     <objects name="Menus">
+      <object>objects\obj_start_menu</object>
       <object>objects\obj_pause_menu</object>
     </objects>
     <objects name="NPCs">
-      <objects name="Panto">
-        <object>objects\obj_sign</object>
-        <object>objects\obj_sick_nana</object>
-      </objects>
       <object>objects\obj_bebu</object>
+      <objects name="Panto">
+        <object>objects\obj_caretaker</object>
+        <object>objects\obj_sick_nana</object>
+        <object>objects\obj_elder_slash</object>
+        <object>objects\obj_elder_caster</object>
+        <object>objects\obj_elder_farewell</object>
+        <object>objects\obj_woman1</object>
+        <object>objects\obj_woman2</object>
+        <object>objects\obj_woman3</object>
+        <object>objects\obj_man1</object>
+        <object>objects\obj_man2</object>
+        <object>objects\obj_man3</object>
+        <object>objects\obj_student1</object>
+        <object>objects\obj_student2</object>
+        <object>objects\obj_student3</object>
+        <object>objects\obj_student4</object>
+        <object>objects\obj_student5</object>
+        <object>objects\obj_student6</object>
+        <object>objects\obj_panto_city_sign</object>
+        <object>objects\obj_panto_city_academy</object>
+        <object>objects\obj_panto_city_gardens</object>
+        <object>objects\obj_seam_blocker</object>
+        <object>objects\obj_bebu_plant</object>
+        <object>objects\obj_bebu_plant_interactable</object>
+        <object>objects\obj_caretaker_interactable</object>
+        <object>objects\obj_elder_caster_interactable</object>
+        <object>objects\obj_elder_attack_interactable</object>
+      </objects>
+      <objects name="Onis">
+        <object>objects\obj_onis_citizen_1</object>
+        <object>objects\obj_onis_citizen_2</object>
+        <object>objects\obj_onis_citizen_3</object>
+        <object>objects\obj_onis_citizen_4</object>
+        <object>objects\obj_onis_citizen_5</object>
+        <object>objects\obj_onis_citizen_6</object>
+        <object>objects\obj_onis_citizen_onoh</object>
+        <object>objects\obj_onis_citizen_blocker_1</object>
+        <object>objects\obj_onis_citizen_blocker_2</object>
+      </objects>
+      <objects name="Dryke">
+        <object>objects\obj_dryke_scholar_1</object>
+        <object>objects\obj_dryke_scholar_2</object>
+        <object>objects\obj_dryke_scholar_3</object>
+        <object>objects\obj_dryke_scholar_4</object>
+        <object>objects\obj_dryke_scholar_5</object>
+        <object>objects\obj_dryke_scholar_6</object>
+        <object>objects\obj_dryke_scholar_7</object>
+        <object>objects\obj_dryke_scholar_blocker_1</object>
+      </objects>
+      <objects name="Stelforn">
+        <object>objects\obj_stelforn_citizen_1</object>
+        <object>objects\obj_stelforn_citizen_2</object>
+        <object>objects\obj_stelforn_citizen_3</object>
+        <object>objects\obj_stelforn_citizen_4</object>
+        <object>objects\obj_stelforn_citizen_5</object>
+        <object>objects\obj_stelforn_citizen_6</object>
+        <object>objects\obj_stelforn_citizen_7</object>
+      </objects>
+    </objects>
+    <objects name="Effects">
+      <object>objects\obj_energy</object>
+      <object>objects\obj_slime</object>
+      <object>objects\obj_stardust</object>
+      <object>objects\obj_dust</object>
+      <object>objects\obj_tentaberg_blood</object>
+      <object>objects\obj_urn_dust</object>
+      <object>objects\obj_hopper_blood</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_one</room>
-    <room>rooms\rm_two</room>
-    <room>rooms\rm_nanas_house</room>
+    <room>rooms\rm_start_menu</room>
+    <rooms name="panto">
+      <room>rooms\rm_pico_house_picos_room</room>
+      <room>rooms\rm_pico_house_living_room</room>
+      <room>rooms\rm_pico_house_forest</room>
+      <room>rooms\rm_panto_city_central</room>
+      <room>rooms\rm_panto_city_house_1</room>
+      <room>rooms\rm_panto_city_house_2</room>
+      <room>rooms\rm_panto_city_house_3</room>
+      <room>rooms\rm_panto_city_house_4</room>
+      <room>rooms\rm_panto_city_academy_grounds</room>
+      <room>rooms\rm_panto_city_academy_classroom_left</room>
+      <room>rooms\rm_panto_city_academy_classroom_right</room>
+      <room>rooms\rm_panto_city_academy_dojo_left</room>
+      <room>rooms\rm_panto_city_academy_dojo_right</room>
+      <room>rooms\rm_panto_city_gardens</room>
+      <rooms name="channel">
+        <room>rooms\rm_channel_entrance</room>
+        <room>rooms\rm_channel_left</room>
+        <room>rooms\rm_channel_center</room>
+        <room>rooms\rm_channel_right</room>
+        <room>rooms\rm_channel_bottom</room>
+        <room>rooms\rm_channel_bottom_right</room>
+        <room>rooms\rm_channel_tentaberg</room>
+        <room>rooms\rm_channel_exit</room>
+      </rooms>
+    </rooms>
+    <rooms name="hub">
+      <room>rooms\rm_hub</room>
+      <room>rooms\rm_prismatic_seam</room>
+      <room>rooms\rm_inbetween</room>
+    </rooms>
+    <rooms name="onis">
+      <room>rooms\rm_onis</room>
+      <room>rooms\rm_onis_house_1</room>
+      <room>rooms\rm_onis_house_2</room>
+      <room>rooms\rm_onis_house_3</room>
+      <rooms name="nexus">
+        <room>rooms\rm_nexus_main</room>
+        <room>rooms\rm_nexus_west</room>
+        <room>rooms\rm_nexus_north_west</room>
+        <room>rooms\rm_nexus_north</room>
+        <room>rooms\rm_nexus_north_coil</room>
+        <room>rooms\rm_nexus_east</room>
+        <room>rooms\rm_nexus_east_boss_key</room>
+        <room>rooms\rm_nexus_queen_chamber</room>
+      </rooms>
+    </rooms>
+    <rooms name="dryke">
+      <room>rooms\rm_dryke</room>
+      <room>rooms\rm_dryke_house_1</room>
+      <room>rooms\rm_dryke_house_2</room>
+      <room>rooms\rm_dryke_house_3</room>
+      <rooms name="analectium">
+        <room>rooms\rm_analectium_entrance</room>
+        <room>rooms\rm_analectium_south</room>
+        <room>rooms\rm_analectium_east</room>
+        <room>rooms\rm_analectium_north_east_quill</room>
+        <room>rooms\rm_analectium_center</room>
+        <room>rooms\rm_analectium_west</room>
+        <room>rooms\rm_analectium_north_west_boss_key</room>
+        <room>rooms\rm_analectium_evocator_mainframe</room>
+      </rooms>
+    </rooms>
+    <rooms name="stelforn">
+      <room>rooms\rm_stelforn</room>
+      <room>rooms\rm_stelforn_house_1</room>
+      <room>rooms\rm_stelforn_house_2</room>
+      <room>rooms\rm_stelforn_house_3</room>
+      <rooms name="tower">
+        <room>rooms\rm_tower_entrance</room>
+        <room>rooms\rm_tower_arena_1</room>
+        <room>rooms\rm_tower_arena_2</room>
+        <room>rooms\rm_tower_arena_3</room>
+        <room>rooms\rm_tower_palm</room>
+        <room>rooms\rm_tower_arena_4</room>
+        <room>rooms\rm_tower_arena_5</room>
+        <room>rooms\rm_tower_arena_6</room>
+        <room>rooms\rm_tower_windmill_south</room>
+        <room>rooms\rm_tower_windmill_east</room>
+        <room>rooms\rm_tower_windmill_west</room>
+        <room>rooms\rm_tower_windmill_north</room>
+        <room>rooms\rm_tower_zel_peak</room>
+      </rooms>
+    </rooms>
     <room>rooms\rm_pause</room>
   </rooms>
   <help>

@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -55,8 +55,8 @@ if (instance_exists(obj_player)) {
             <string>/// move 10% towards the player
 
 if (instance_exists(obj_player)) {
-    x += (obj_player.x - x) * .3;
-    y += (obj_player.y - y) * .3;
+    x += (obj_player.x - x);
+    y += (obj_player.y - y);
 }
 </string>
           </argument>

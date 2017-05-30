@@ -8,7 +8,7 @@ if (aiming = true and !obj_input.aim_key) {
         }
 
     
-    
+    canattack = true;
     aiming = false;
     state = scr_walk_state;
 }
